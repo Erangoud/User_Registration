@@ -34,6 +34,8 @@ def validate_phone_number(number):
 def validate_password(password):
     if len(password)<8:
         raise InvalidInput("the password length must me above 8 characters")
+    if not re.search(r"[A-Z]",password):
+        raise InvalidInput("password must contain atleast one uppercase ")
     return True
 
 try:
