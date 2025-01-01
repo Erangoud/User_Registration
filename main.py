@@ -17,6 +17,14 @@ def valid_last_name(last_name):
         raise InvalidInput("invalid \nfirst letter should be CAPITAL and minimum 3 letters required")
     return True 
 
+def valid_email(email):
+    pattern=r"^[a-zA-Z0-9._%+-]+@[a-zA-z]+\.[a-zA-Z]{2,}$"
+    match=re.match(pattern,email)
+    if not match :
+        raise InvalidInput("the email you entered is invalid ")
+    return True
+
+
 try:
     first_name=input("enter the first name : ")
     validate_first_name(first_name)
@@ -24,6 +32,10 @@ try:
 
     last_name=input("enter the last name : ")
     valid_last_name(last_name)
+    print("valid")
+        
+    email=input("enter the email : ")
+    valid_email(email)
     print("valid")
         
 except InvalidInput as e:
