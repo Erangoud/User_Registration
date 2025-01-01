@@ -38,6 +38,9 @@ def validate_password(password):
         raise InvalidInput("password must contain atleast one uppercase ")
     if not re.search(r"\d",password):
         raise InvalidInput("password must contain atleast one numeric character")
+    if len(re.findall(r'[!@#$%^&*()_+]', password)) != 1:
+        raise InvalidInput("Password must have exactly one special character.")
+    
     return True
 
 
