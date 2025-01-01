@@ -36,7 +36,10 @@ def validate_password(password):
         raise InvalidInput("the password length must me above 8 characters")
     if not re.search(r"[A-Z]",password):
         raise InvalidInput("password must contain atleast one uppercase ")
+    if not re.search(r"\d",password):
+        raise InvalidInput("password must contain atleast one numeric character")
     return True
+
 
 try:
     first_name=input("enter the first name : ")
