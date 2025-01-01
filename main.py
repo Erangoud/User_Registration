@@ -31,6 +31,11 @@ def validate_phone_number(number):
         raise InvalidInput("the entered number is invalid ")
     return True
 
+def validate_password(password):
+    if len(password)<8:
+        raise InvalidInput("the password length must me above 8 characters")
+    return True
+
 try:
     first_name=input("enter the first name : ")
     validate_first_name(first_name)
@@ -48,6 +53,10 @@ try:
     validate_phone_number(number)
     print("valid number ")
 
+    passwd=input("enter the password : ")
+    validate_password(passwd)
+    print("valid password")
+    
 except InvalidInput as e:
     print(f"invalid input {e}")
 
