@@ -24,6 +24,12 @@ def valid_email(email):
         raise InvalidInput("the email you entered is invalid ")
     return True
 
+def validate_phone_number(number):
+    pattern=r"^\+\d{1,3} \d{10}$"
+    match=re.match(pattern,number)
+    if not match:
+        raise InvalidInput("the entered number is invalid ")
+    return True
 
 try:
     first_name=input("enter the first name : ")
@@ -37,7 +43,11 @@ try:
     email=input("enter the email : ")
     valid_email(email)
     print("valid")
-        
+
+    number=input("enter the mobile number : ")
+    validate_phone_number(number)
+    print("valid number ")
+
 except InvalidInput as e:
     print(f"invalid input {e}")
 
